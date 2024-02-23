@@ -10,14 +10,14 @@
    
 ## Usuarios de Sistema
 
-**Administrador:**
+**Administrador**
 - user: administrator@gmail.com
 - password: 123@
 
-**Supervisor:**
+**Supervisor**
 - user: supervisor@gmail.com
 - password: 123@
 
-**Empleado:**
+**Empleado**
 - user: employeed@gmail.com
 - password: 123@
