@@ -9,7 +9,7 @@ namespace Challenge.API.Controllers
     [ApiController]
     public class ProvinceController : ControllerBase
     {
-        readonly IMediator mediator;
+        private readonly IMediator mediator;
 
         public ProvinceController(IMediator mediator)
         {

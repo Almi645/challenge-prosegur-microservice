@@ -12,7 +12,7 @@ namespace Challenge.API.Controllers
     [ApiController]
     public class OrderController : ControllerBase
     {
-        readonly IMediator mediator;
+        private readonly IMediator mediator;
 
         public OrderController(IMediator mediator)
         {

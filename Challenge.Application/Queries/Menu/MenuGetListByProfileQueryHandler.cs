@@ -3,7 +3,6 @@ using MediatR;
 using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -11,7 +10,7 @@ namespace Challenge.Application.Queries.Menu
 {
     public class MenuGetListByProfileQueryHandler : IRequestHandler<MenuGetListByProfileQuery, IEnumerable<Repository.Entities.Menu>>
     {
-        readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
         public MenuGetListByProfileQueryHandler(IUnitOfWork unitOfWork)
         {

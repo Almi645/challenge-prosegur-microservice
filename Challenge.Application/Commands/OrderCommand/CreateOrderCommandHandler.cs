@@ -1,5 +1,4 @@
-﻿using Challenge.Application.Commands.Product;
-using Challenge.Repository.Base;
+﻿using Challenge.Repository.Base;
 using MediatR;
 using System;
 using System.Collections.Generic;
@@ -16,14 +15,10 @@ namespace Challenge.Application.Commands.OrderCommand
     public class CreateOrderCommandHandler : IRequestHandler<CreateOrderCommand, (bool, List<CreateOrderItemOuputCommand>)>
     {
         private readonly IUnitOfWork unitOfWork;
-        private readonly IMediator mediator;
 
-        public CreateOrderCommandHandler(
-            IUnitOfWork unitOfWork,
-            IMediator mediator)
+        public CreateOrderCommandHandler(IUnitOfWork unitOfWork)
         {
             this.unitOfWork = unitOfWork;
-            this.mediator = mediator;
         }
 
         public async Task<(bool, List<CreateOrderItemOuputCommand>)> Handle(CreateOrderCommand request, CancellationToken cancellationToken)

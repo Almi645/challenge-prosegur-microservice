@@ -2,10 +2,8 @@
 using Challenge.Application.Queries.Menu;
 using Challenge.Repository.Base;
 using MediatR;
-using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -13,8 +11,8 @@ namespace Challenge.Application.Queries.User
 {
     public class AuthenticateUserQueryHandler : IRequestHandler<AuthenticateUserQuery, IEnumerable<Repository.Entities.Menu>>
     {
-        readonly IUnitOfWork unitOfWork;
-        readonly IMediator mediator;
+        private readonly IUnitOfWork unitOfWork;
+        private readonly IMediator mediator;
 
         public AuthenticateUserQueryHandler(
             IUnitOfWork unitOfWork,

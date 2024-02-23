@@ -2,12 +2,9 @@
 using Challenge.Common.Enums;
 using Challenge.Common.Utility;
 using Challenge.Repository.Base;
-using Challenge.Repository.Entities;
 using MediatR;
 using System;
-using System.Collections.Generic;
 using System.Linq;
-using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -15,7 +12,7 @@ namespace Challenge.Application.Commands.Invoice
 {
     public class GeneratedInvoiceCommandHandler : IRequestHandler<GeneratedInvoiceCommand, bool>
     {
-        readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
         public GeneratedInvoiceCommandHandler(IUnitOfWork unitOfWork)
         {
@@ -33,7 +30,7 @@ namespace Challenge.Application.Commands.Invoice
             invoice.serie = request.serie;
             invoice.document = request.document;
             invoice.provinceId = province.id;
-            invoice.provinceTax = province.tax;
+            invoice.provinceTax = (province.tax / 100) * order.total;
             invoice.subTotal = order.total;
             invoice.total = ((province.tax / 100) * order.total) + order.total;
             invoice.date = DateTime.UtcNow;

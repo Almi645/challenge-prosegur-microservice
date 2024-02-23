@@ -8,7 +8,7 @@ namespace Challenge.Application.Queries.Customer
 {
     public class CustomerGetListQueryHandler : IRequestHandler<CustomerGetListQuery, IEnumerable<Repository.Entities.Customer>>
     {
-        readonly IUnitOfWork unitOfWork;
+        private readonly IUnitOfWork unitOfWork;
 
         public CustomerGetListQueryHandler(IUnitOfWork unitOfWork)
         {

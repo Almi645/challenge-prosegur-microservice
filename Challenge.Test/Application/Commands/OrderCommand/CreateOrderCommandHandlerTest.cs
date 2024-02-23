@@ -1,5 +1,4 @@
 ﻿using Challenge.Application.Commands.OrderCommand;
-using Challenge.Application.Commands.Product;
 using Challenge.Repository.Base;
 using Challenge.Repository.Entities;
 using MediatR;
@@ -11,23 +10,20 @@ namespace Challenge.Test.Application.Commands.OrderCommand
 {
     public class CreateOrderCommandHandlerTest
     {
-        private readonly Mock<IMediator> mediatorMock;
         private readonly Mock<IUnitOfWork> unitOfWorkMock;
         private readonly Mock<IDbContextTransaction> dbContextTransactionMock;
         private readonly CreateOrderCommandHandler createOrderCommandHandler;
 
         public CreateOrderCommandHandlerTest()
         {
-            this.mediatorMock = new Mock<IMediator>();
             this.unitOfWorkMock = new Mock<IUnitOfWork>();
             this.dbContextTransactionMock = new Mock<IDbContextTransaction>();
-            this.createOrderCommandHandler = new CreateOrderCommandHandler(unitOfWorkMock.Object, mediatorMock.Object);
+            this.createOrderCommandHandler = new CreateOrderCommandHandler(unitOfWorkMock.Object);
         }
 
         [Fact]
         public async Task HandleTest()
         {
-            var validateStockCommand = It.IsAny<ValidateStockProductCommand>();
             var response = new List<Order>();
 
             unitOfWorkMock
@@ -68,7 +64,6 @@ namespace Challenge.Test.Application.Commands.OrderCommand
         [Fact]
         public async Task HandleNoStockTest()
         {
-            var validateStockCommand = It.IsAny<ValidateStockProductCommand>();
             var response = new List<Order>();
         
             unitOfWorkMock

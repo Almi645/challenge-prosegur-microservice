@@ -10,7 +10,7 @@ namespace Challenge.API.Controllers
     [ApiController]
     public class InvoiceController : ControllerBase
     {
-        readonly IMediator mediator;
+        private readonly IMediator mediator;
 
         public InvoiceController(IMediator mediator)
         {

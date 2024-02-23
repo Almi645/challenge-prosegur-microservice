@@ -1,12 +1,6 @@
-﻿using Challenge.Application.Base;
-using Challenge.Application.Queries.Customer;
-using Challenge.Application.Queries.Product;
+﻿using Challenge.Application.Queries.Customer;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using System.Collections;
-using System.Collections.Generic;
-using System.Net;
 using System.Threading.Tasks;
 
 namespace Challenge.API.Controllers
@@ -15,7 +9,7 @@ namespace Challenge.API.Controllers
     [ApiController]
     public class CustomerController : ControllerBase
     {
-        readonly IMediator mediator;
+        private readonly IMediator mediator;
 
         public CustomerController(IMediator mediator)
         {

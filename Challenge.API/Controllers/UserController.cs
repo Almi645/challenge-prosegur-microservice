@@ -1,7 +1,5 @@
-﻿using Challenge.Application.Commands.Product;
-using Challenge.Application.Queries.User;
+﻿using Challenge.Application.Queries.User;
 using MediatR;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using System.Threading.Tasks;
 
@@ -11,7 +9,7 @@ namespace Challenge.API.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        readonly IMediator mediator;
+        private readonly IMediator mediator;
 
         public UserController(IMediator mediator)
         {
