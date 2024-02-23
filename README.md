@@ -19,5 +19,5 @@
 - password: 123@
 
 **Empleado**
-- user: employeed@gmail.com
+- user: employee@gmail.com
 - password: 123@
