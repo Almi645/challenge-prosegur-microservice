@@ -11,16 +11,13 @@
 ## Usuarios de Sistema
 
 **Administrador:**
-
-- Email: administrator@gmail.com
-- Contraseña: 123@
+- user: administrator@gmail.com
+- password: 123@
 
 **Supervisor:**
-
-- Email: supervisor@gmail.com
-- Contraseña: 123@
+- user: supervisor@gmail.com
+- password: 123@
 
 **Empleado:**
-
-- Email: employeed@gmail.com
-- Contraseña: 123@
+- user: employeed@gmail.com
+- password: 123@
