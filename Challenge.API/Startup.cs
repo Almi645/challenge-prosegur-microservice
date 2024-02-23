@@ -155,9 +155,9 @@ namespace Challenge.AI
 
             dbContext.Add(profile03);
 
-            dbContext.Add(new User { username = "administrator@gmail.com", password = "123@", profileId = 1 });
-            dbContext.Add(new User { username = "supervisor@gmail.com", password = "123@", profileId = 2 });
-            dbContext.Add(new User { username = "employee@gmail.com", password = "123@", profileId = 3 });
+            dbContext.Add(new User { username = "administrator@gmail.com", password = "123@", profileId = 1, fullname = "Miguel Suarez" });
+            dbContext.Add(new User { username = "supervisor@gmail.com", password = "123@", profileId = 2, fullname = "Miguel Perez" });
+            dbContext.Add(new User { username = "employee@gmail.com", password = "123@", profileId = 3, fullname = "Miguel Quiñonez" });
 
             dbContext.SaveChanges();
         }

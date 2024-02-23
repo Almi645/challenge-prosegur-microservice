@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Challenge.Application.Queries.User
 {
-    public class AuthenticateUserQueryHandler : IRequestHandler<AuthenticateUserQuery, IEnumerable<Repository.Entities.Menu>>
+    public class AuthenticateUserQueryHandler : IRequestHandler<AuthenticateUserQuery, AuthenticateUserViewModel>
     {
         private readonly IUnitOfWork unitOfWork;
         private readonly IMediator mediator;
@@ -22,7 +22,7 @@ namespace Challenge.Application.Queries.User
             this.mediator = mediator;
         }
 
-        public async Task<IEnumerable<Repository.Entities.Menu>> Handle(AuthenticateUserQuery request, CancellationToken cancellationToken)
+        public async Task<AuthenticateUserViewModel> Handle(AuthenticateUserQuery request, CancellationToken cancellationToken)
         {
             var userList = await unitOfWork.Repository<Repository.Entities.User>().GetList(m => m.username == request.username && m.password == request.password);
             var user = userList.FirstOrDefault();
@@ -34,7 +34,15 @@ namespace Challenge.Application.Queries.User
 
             var queryFilter = new MenuGetListByProfileQuery();
             queryFilter.profileId = user.profileId;
-            var result = await mediator.Send(queryFilter);
+            var menus = await mediator.Send(queryFilter);
+
+            var result = new AuthenticateUserViewModel
+            {
+                username = user.username,
+                fullname = user.fullname,
+                profileId = user.profileId,
+                menus = menus
+            };
 
             return result;
         }
